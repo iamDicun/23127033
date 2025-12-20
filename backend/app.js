@@ -2,6 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
+import errorHandler from './middlewares/errorHandler.js';
+import notFound from './middlewares/notFound.js';
+import userRoutes from './routes/users.routes.js';
+/*import addressRoutes from './routes/address.routes.js';
+import productRoutes from './routes/products.routes.js';
+import orderRoutes from './routes/orders.routes.js';*/
 
 const app = express();
 
@@ -16,8 +22,15 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'Hello world',
+    message: 'Hello World!',
   });
 });
 
+app.use('/users', userRoutes);
+/*app.use('/addresses', addressRoutes);
+app.use('/products', productRoutes);
+app.use('/orders', orderRoutes);*/
+
+app.use(errorHandler);
+app.use(notFound);
 export default app;
