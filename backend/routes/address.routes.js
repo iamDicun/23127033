@@ -7,7 +7,7 @@ const router = Router();
 router.get('/', addressController.getAllAddresses);
 
 // Get address by ID
-router.get('/:id', addressController.getAddressById);
+/*router.get('/:id', addressController.getAddressById);
 
 // Create new address
 router.post('/', addressController.createAddress);
@@ -16,6 +16,6 @@ router.post('/', addressController.createAddress);
 router.put('/:id', addressController.updateAddress);
 
 // Delete address by ID
-router.delete('/:id', addressController.deleteAddress);
+router.delete('/:id', addressController.deleteAddress);*/
 
 export default router;

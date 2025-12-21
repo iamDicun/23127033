@@ -3,10 +3,10 @@ import { getAllOrders, getOrderById, createOrder, updateOrder, deleteOrder } fro
 
 const router = Router();
 
-// Get all orders
-router.get('/', getAllOrders); // Khi lấy kèm theo order items, sử dụng truy vấn với JOIN trong controller
+// Get all orders (use ?include_items=true to include order items with product details)
+router.get('/', getAllOrders);
 
-// Get order by ID
+// Get order by ID (use ?include_items=true to include order items with product details)
 router.get('/:id', getOrderById);
 
 // Create new order

@@ -47,7 +47,7 @@ export const products = pgTable('products', {
     name: text('name').notNull(),
     description: text('description'),
     price: numeric ('price', { precision: 10, scale: 2 }).notNull(),
-    stock_quantity: integer('stock').notNull().default(0),
+    stock_quantity: integer('stock_quantity').notNull().default(0),
     attributes: json('attributes'), // Lưu trữ các thuộc tính động dưới dạng JSON
     is_published: boolean('is_published').notNull().default(true),
 });
@@ -58,7 +58,7 @@ export const orders = pgTable('orders', {
     shipping_address_snapshot: json('shipping_address_snapshot').notNull(), // Lưu trữ snapshot địa chỉ giao hàng
     total_amount: numeric('total_amount', { precision: 12, scale: 2 }).notNull(),
     status: orderStatusEnum('status').notNull().default('pending'),
-    expected_delivery_date: date('expected_delivery'),
+    expected_delivery_date: date('expected_delivery_date'),
     create_at: timestamp('created_at').notNull().defaultNow(),
 });
 
