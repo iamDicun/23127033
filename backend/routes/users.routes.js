@@ -11,15 +11,18 @@ const router = Router();
 router.get('/', userController.getAllUsers);
 
 // Get user by ID
-/*router.get('/:id', userController.getUserById);
+router.get('/:id', userController.getUserById);
 
 // Create new user
-router.post('/', userController.createUser);
+router.post('/signup', validate(registerSchema), userController.createUser);
+
+// User login
+router.post('/login', validate(loginSchema), userController.login);
 
 // Update user by ID
-router.put('/:id', userController.updateUser);
+router.put('/:id', validate(updateUserSchema), userController.updateUser);
 
 // Delete user by ID
-router.delete('/:id', userController.deleteUser);*/
+router.delete('/:id', userController.deleteUser);
 
 export default router;
