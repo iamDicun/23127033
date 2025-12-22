@@ -5,9 +5,10 @@ export default function (error, req, res, next) {
   // Kiểm tra xem phải lỗi nhập liệu từ Zod không
   if (error instanceof ZodError) {
     res.status(400).json({
-      message: 'Validation failed by Zod',
-      stack: error.stack, // Bao gồm stack trace để dễ dàng gỡ lỗi
-      issues: error.issues, // Thêm thông tin chi tiết về lỗi từ Zod
+      error: {
+        message: 'Validation failed',
+        issues: error.issues[0].message, // Thêm thông tin chi tiết về lỗi từ Zod
+      }
     });
   } else {
     res.status(500).json({
