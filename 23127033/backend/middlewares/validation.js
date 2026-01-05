@@ -8,7 +8,7 @@ export default function(schema) {
       console.error(err);
       // Map formatted message
       return res.status(400).json({
-        message: 'Validation failed',
+        message: 'Validation error',
         errors: err.issues.map(i => ({
           field: i.path.join('.'),
           message: i.message,

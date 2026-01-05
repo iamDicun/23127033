@@ -1,11 +1,11 @@
-import categoryService from '../services/category.js';
+import customerService from '../services/customer.js';
 
 const controller = {
   list: async function (_req, res) {
-    const categories = await categoryService.findAll();
+    const customers = await customerService.findAll();
     // Return with proper format: { data: [...] }
     res.status(200).json({
-      data: categories
+      data: customers
     });
   },
 }

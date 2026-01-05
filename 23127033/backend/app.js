@@ -2,8 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
-import taskRoute from './routes/task.js';
+import ticketRoute from './routes/ticket.js';
 import categoryRoute from './routes/category.js';
+import customerRoute from './routes/customer.js';
 import notFound from './middlewares/notFound.js';
 import errorHandler from './middlewares/errorHandler.js';
 import auth from './middlewares/auth.js';
@@ -33,10 +34,10 @@ app.use(restResponse);
 // Check token
 app.use(auth);
 
-// Task
-app.use('/tasks', taskRoute);
-// Category
+// Routes
+app.use('/tickets', ticketRoute);
 app.use('/categories', categoryRoute);
+app.use('/customers', customerRoute);
 
 // Error handling
 app.use(notFound);
